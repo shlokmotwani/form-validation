@@ -97,7 +97,8 @@ input:invalid{
     outline: 3px solid var(--invalid-border-color);
 }
 
-input[type="submit"]{
+input[type="submit"],
+input[type="submit"]:focus{
     width: 25%;
     color: var(--title-color);
     background-color: var(--submit-btn-color);

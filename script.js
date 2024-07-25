@@ -3,6 +3,14 @@ let countryElem = document.querySelector("#country");
 let zipElem = document.querySelector("#zip");
 let passwordElem = document.querySelector("#password");
 let confirmPasswordElem = document.querySelector("#confirm-password");
+let submitBtn = document.querySelector("input[type='submit']");
+
+let formElements = [];
+formElements.push(emailElem);
+formElements.push(countryElem);
+formElements.push(zipElem);
+formElements.push(passwordElem);
+formElements.push(confirmPasswordElem);
 
 function addEventListenersToEmail() {
   emailElem.addEventListener("input", () => {
@@ -38,5 +46,74 @@ function addEventListenersToCountry() {
   });
 }
 
+function addEventListenersToZIP(){
+  zipElem.addEventListener("input", () => {
+    if (!zipElem.checkValidity()) {
+      if (zipElem.validity.valueMissing) {
+        zipElem.setCustomValidity("Please specify the ZIP code.");
+      } else if (zipElem.validity.tooShort) {
+        zipElem.setCustomValidity(
+          "ZIP Code must contain atleast 5 digits."
+        );
+      } else {
+        zipElem.setCustomValidity("");
+      }
+      zipElem.reportValidity();
+    }
+  });
+}
+
+function addEventListenersToPassword(){
+  passwordElem.addEventListener("input", () => {
+    confirmPasswordElem.value = "";
+    if (!passwordElem.checkValidity()) {
+      if (passwordElem.validity.valueMissing) {
+        passwordElem.setCustomValidity("Please enter a password.");
+      } else if (passwordElem.validity.tooShort) {
+        passwordElem.setCustomValidity(
+          `Password must contain atleast ${passwordElem.minLength} characters.`
+        );
+      } else {
+        passwordElem.setCustomValidity("");
+      }
+      passwordElem.reportValidity();
+    }
+  });
+}
+
+function addEventListenersToConfirmPassword(){
+  confirmPasswordElem.addEventListener("input", () => {
+    if(confirmPasswordElem.value === passwordElem.value){
+      confirmPasswordElem.setCustomValidity("");
+    }
+    else{
+      confirmPasswordElem.setCustomValidity("Passwords do not match.");
+    }
+    confirmPasswordElem.reportValidity();
+  });
+}
+
+function addEventListenersToSubmitBtn(){
+  submitBtn.addEventListener("click", (event)=>{
+    let form = document.querySelector("#form");
+    if(!form.checkValidity()){
+      for(let i=0; i<formElements.length; i++){
+        if(!formElements[i].validity.valid){
+          formElements[i].reportValidity();
+          break;
+        }
+      }
+      event.preventDefault();
+    }
+    else{
+      
+    }
+  });
+}
+
 addEventListenersToEmail();
 addEventListenersToCountry();
+addEventListenersToZIP();
+addEventListenersToPassword();
+addEventListenersToConfirmPassword();
+addEventListenersToSubmitBtn();

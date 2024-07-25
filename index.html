@@ -14,8 +14,8 @@
           <legend>Enter your details</legend>
           <input type="email" id="email" name="email" placeholder="Email address" required>
           <input type="text" id="country" name="country" placeholder="Country" minlength="4" maxlength="14" required>
-          <input type="number" id="zip" name="zip" placeholder="ZIP Code" required>
-          <input type="password" id="password" name="password" placeholder="Password" required>
+          <input type="text" inputmode="numeric" id="zip" name="zip" placeholder="ZIP Code" minlength="5" maxlength="6" pattern="\d*" required>
+          <input type="password" id="password" name="password" placeholder="Password" minlength="6" required>
           <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
         </fieldset>
         <input type="submit">
