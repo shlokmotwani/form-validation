@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Validation</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div id="main">
-    <div id="wrapper">
-      <form action="" id="form" novalidate>
-        <fieldset>
-          <legend>Enter your details</legend>
-          <input type="email" id="email" name="email" placeholder="Email address" required>
-          <input type="text" id="country" name="country" placeholder="Country" minlength="4" maxlength="14" required>
-          <input type="text" inputmode="numeric" id="zip" name="zip" placeholder="ZIP Code" minlength="5" maxlength="6" pattern="\d*" required>
-          <input type="password" id="password" name="password" placeholder="Password" minlength="6" required>
-          <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
-        </fieldset>
-        <input type="submit">
-      </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="wrapper">
+        <form action="" id="form" novalidate>
+          <fieldset>
+            <legend>Enter your details</legend>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email address"
+              required
+            />
+            <input
+              type="text"
+              id="country"
+              name="country"
+              placeholder="Country"
+              minlength="4"
+              maxlength="14"
+              required
+            />
+            <input
+              type="text"
+              inputmode="numeric"
+              id="zip"
+              name="zip"
+              placeholder="ZIP Code"
+              minlength="5"
+              maxlength="6"
+              pattern="\d*"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              minlength="6"
+              required
+            />
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Re-enter password"
+              required
+            />
+          </fieldset>
+          <input type="submit" />
+        </form>
+      </div>
     </div>
-  </div>
-  <script src="./script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
