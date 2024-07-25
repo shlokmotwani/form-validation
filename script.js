@@ -1,3 +1,4 @@
+let wrapper = document.querySelector("#wrapper");
 let emailElem = document.querySelector("#email");
 let countryElem = document.querySelector("#country");
 let zipElem = document.querySelector("#zip");
@@ -103,11 +104,14 @@ function addEventListenersToSubmitBtn(){
           break;
         }
       }
-      event.preventDefault();
     }
     else{
-      
+      form.style.display = "none";
+      let span = document.createElement("span");
+      span.textContent = "High Five!";
+      wrapper.appendChild(span);
     }
+    event.preventDefault();
   });
 }
 
